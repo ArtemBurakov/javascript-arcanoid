@@ -1,0 +1,149 @@
+body {
+	margin:0;
+	padding:0;
+}
+
+.top {
+	height:68px;
+	border:1px solid white;
+}
+
+.home {
+	height:44px;
+	background-color: #5f5f5f;
+}
+
+.p {
+	font-size:150%;
+	text-align: center;
+}
+
+.footer {
+	font-family: Verdana,sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	text-align: center;
+	color:#5f5f5f;
+	padding:20px 0;
+}
+
+.js {
+	font-family: fontawesome;
+	text-decoration: none;
+	line-height: 1;
+	font-size: 37px;
+	letter-spacing: 3px;
+	color: #555555;
+	display: block;
+	position: absolute;
+	top: 17px;
+	padding-left: 20px;
+}
+
+.game {
+	background-color: #f1f1f1;
+}
+
+.field {
+	position: absolute;
+	left: 10px;
+	top: 140px;
+	width: 1024px;
+	height: 505px;
+	background: gray;
+	border-radius: 5px;
+}
+
+.vaus {
+	position: absolute;
+	left: 395px;
+	top: 630px;
+	width: 200px;
+	height: 10px;
+	background: blue;
+	border-radius: 5px;
+}
+
+.ball {
+	position: absolute;
+	left: 500px;
+	top: 620px;
+	width: 10px;
+	height: 10px;
+	background: orange;
+	border-radius: 5px;
+}
+
+.block {
+	position: absolute;
+	width: 100px;
+	height: 30px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.score {
+	position: absolute;
+	width: 100px;
+	height: 40px;
+	background: yellow;
+	left:1050px;
+	top:140;
+	border-radius: 5px;
+}
+
+.live {
+	position: absolute;
+	width: 100px;
+	height: 40px;
+	background: yellow;
+	left:1050px;
+	top:240;
+	border-radius: 5px;
+}
+
+.level {
+	position: absolute;
+	width: 100px;
+	height: 40px;
+	background: yellow;
+	left:1050px;
+	top:340;
+	border-radius: 5px;
+}
+
+.start {
+	position: absolute;
+	width: 100px;
+	height: 40px;
+	left:1050px;
+	top:440px;
+}
+
+.left {
+	position: absolute;
+	width: 300px;
+	height: 505px;
+	left:10px;
+	top:140px;
+	background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+.right {
+	position: absolute;
+	width: 300px;
+	height: 505px;
+	left:734px;
+	top:140px;
+	background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}

@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+		<link rel="stylesheet" href="style.css">
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<div class="top">
+			<div class="js">Arcanoid</div>
+		</div>
+		<div class="home"></div>
+		<div class="game">
+			<div class="field" id="field"></div>
+			<div class="vaus" id="vaus"></div>
+			<div class="ball" id="ball"></div>
+			<div class="score">Score: <span id="score"></span></div>
+			<div class="live">live: <span id="live"></span></div>
+			<div class="level">Level: <span id="level"></span></div>
+			<button class="start" id="start" onClick="startBall(); document.getElementById('restart').style.display = ''; this.style.display = 'none';">Start</button>
+			<button class="start" id="restart" onClick="window.location.reload();" style="display: none;">Restart</button>
+			<button class="left" onmousedown="moveVausLeft()"> < </button>
+			<button class="right" onmousedown="moveVausRight()"> > </button>
+		</div>
+	</body>
+</html>
