@@ -6,7 +6,7 @@ level = 0;
 
 //ball
 ball = {top: 620, left: 500};
-ballSpeed = {top: -3, left: 3};
+ballSpeed = {top: -2, left: 2};
 ballMoving = false;
 
 //ball move interval
@@ -39,7 +39,7 @@ function loadLevelsData(levelNumber){
 
 //build blocks
 function buildBlocks(){
-    for (var i = 0; i < levelBlocks[level].length; i++){
+	for (var i = 0; i < levelBlocks[level].length; i++){
 		var ele = document.createElement("div");
 	        ele.setAttribute("id",'block'+ i);
 	        ele.setAttribute("class","block");
@@ -70,7 +70,7 @@ function resetGame(){
 	ballMoving = false;
 
 	//reset ball position
-	ball = {top: 620, left: 510};
+	ball = {top: 620, left: 500};
 	document.getElementById('ball').style.left = ball.left;
 	document.getElementById('ball').style.top = ball.top;
 
@@ -109,7 +109,7 @@ function moveVausLeft(){
 
 	//move ball with Vaus
 	if (ballMoving == false){
-		ball.left = ball.left - 35;
+		ball.left = ball.left - 60;
 		if (ball.left < 120){
 			ball.left = 120
 		}
@@ -128,7 +128,7 @@ function moveVausRight(){
 
 	//move ball with Vaus
 	if (ballMoving == false){
-		ball.left = ball.left + 35;
+		ball.left = ball.left + 60;
 		if (ball.left > 930){
 			ball.left = 930
 		}
@@ -138,7 +138,7 @@ function moveVausRight(){
 
 function startBall(){
 	//set interval on moveBall function
-	movement = setInterval(moveBall, 10);
+	movement = setInterval(moveBall, 6);
 	ballMoving = true;
 }
 
@@ -172,7 +172,7 @@ function moveBall(){
 				//if block
 				removeBlocks();
 
-				//if there are more bricks
+				// //if there are more bricks
 				checkBlocks();
 			}
 			//vertical return
@@ -241,16 +241,29 @@ function checkPlace(){
 }
 
 function removeBlocks(){
-	if (document.getElementById('block' + affectedNumber).style.background == 'blue'){
-		document.getElementById('block' + affectedNumber).style.background = 'red'
-	} else{
-		levelBlocks[level][affectedNumber]['visibility'] = false;
-		document.getElementById('block' + affectedNumber).style.display = 'none';
+	//green block
+	if (document.getElementById('block' + affectedNumber).style.background == 'green'){
+		document.getElementById('block' + affectedNumber).style.background = 'blue'
+		return;
 	}
-
+	//blue block
+	if (document.getElementById('block' + affectedNumber).style.background == 'blue'){
+		document.getElementById('block' + affectedNumber).style.background = 'yellow'
+		return;
+	}
+	//yellow block
 	if (document.getElementById('block' + affectedNumber).style.background == 'yellow'){
 		score = score+1;
+
 		document.getElementById("score").innerHTML = score;
+		document.getElementById('block' + affectedNumber).style.background = 'red'
+		return;
+	}
+	//red block
+	if (document.getElementById('block' + affectedNumber).style.background == 'red'){
+		levelBlocks[level][affectedNumber]['visibility'] = false;
+		document.getElementById('block' + affectedNumber).style.display = 'none';
+		return;
 	}
 }
 
@@ -260,10 +273,19 @@ function checkBlocks(){
 			return;
 		}
 	}
-
 	//level passed
 	level = level + 1;
 	alert('Level ' + (level + 1));
 	resetGame();
 	buildBlocks();
+
+	//remove all affected blocks
+	for (var i = 0; i < levelBlocks[level-1].length; i++){
+		var ele = document.getElementById('block' + i);
+		if (ele.style.display == 'none'){
+			ele.parentNode.removeChild(ele);
+		} else{
+			return;
+		}
+	}
 }
