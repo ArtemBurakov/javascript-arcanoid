@@ -66,6 +66,8 @@ body {
 
 .ball {
 	position: absolute;
+	top: 620px;
+	left: 498px;
 	width: 10px;
 	height: 10px;
 	background: orange;

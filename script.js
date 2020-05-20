@@ -5,7 +5,7 @@ live = 10;
 level = 0;
 
 //ball
-ball = {top: 620, left: 500};
+ball = {top: 620, left: 498};
 ballSpeed = {top: -2, left: 2};
 ballMoving = false;
 
@@ -14,6 +14,8 @@ movement = null;
 
 //affected block number
 affectedNumber = 0;
+
+direction = null;
 
 //load levels data
 levelBlocks = [];
@@ -70,7 +72,7 @@ function resetGame(){
 	ballMoving = false;
 
 	//reset ball position
-	ball = {top: 620, left: 500};
+	ball = {top: 620, left: 498};
 	document.getElementById('ball').style.left = ball.left;
 	document.getElementById('ball').style.top = ball.top;
 
@@ -99,7 +101,7 @@ function keyProgram(e){
 }
 
 function moveVausLeft(){
-	vausLeft = vausLeft - 60;
+	vausLeft = vausLeft - 75;
 
 	//left range
 	if (vausLeft < 10){
@@ -109,26 +111,26 @@ function moveVausLeft(){
 
 	//move ball with Vaus
 	if (ballMoving == false){
-		ball.left = ball.left - 60;
-		if (ball.left < 120){
-			ball.left = 120
+		ball.left = ball.left - 75;
+		if (ball.left < 110){
+			ball.left = 110
 		}
 		document.getElementById('ball').style.left = ball.left;
 	}
 }
 
 function moveVausRight(){
-	vausLeft = vausLeft + 60;
+	vausLeft = vausLeft + 75;
 
 	//right range
-	if (vausLeft > 820){
-		vausLeft = 820
+	if (vausLeft > 834){
+		vausLeft = 834
 	}
 	document.getElementById('vaus').style.left = vausLeft;
 
 	//move ball with Vaus
 	if (ballMoving == false){
-		ball.left = ball.left + 60;
+		ball.left = ball.left + 75;
 		if (ball.left > 930){
 			ball.left = 930
 		}
@@ -188,6 +190,7 @@ function moveBall(){
 }
 
 function returnVertical(){
+	direction = 'vertical';
 	//change the increment to the opposite
 	ballSpeed.top = -ballSpeed.top;
 
@@ -196,6 +199,7 @@ function returnVertical(){
 }
 
 function returnHorizontal(){
+	direction = 'horizontal';
 	//change the increment to the opposite
 	ballSpeed.left = -ballSpeed.left;
 
@@ -287,5 +291,11 @@ function checkBlocks(){
 		} else{
 			return;
 		}
+	}
+
+	if (direction == 'horizontal'){
+		returnHorizontal();
+	} else{
+		returnVertical();
 	}
 }
